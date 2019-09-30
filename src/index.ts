@@ -7,6 +7,7 @@ import { Options, ICharge, ICustomers, IRefunds, IVerificarion } from '../typing
 
 class Payments {
   options: Options
+  secretKey: string
   charge: ICharge
   customers: ICustomers
   refunds: IRefunds
@@ -14,13 +15,18 @@ class Payments {
 
   constructor(options: Options) {
     this.options = { ...options, axios: this._axios() }
+    this.secretKey = options.secretKey
     this.charge = new Charge(this.options)
     this.customers = new Customers(this.options)
     this.refunds = new Refunds(this.options)
     this.verification = new Verification(this.options)
   }
 
-  _axios(): any {}
+  _axios(): any {
+    // @ts-ignore
+    axios.defaults.headers.common['Authorization'] = this.secretKey
+    return axios
+  }
 }
 
 export default Payments

@@ -1,16 +1,18 @@
 import Payments from '../src/index'
 
 /**
- * Dummy test
+ * Payments test
  */
-// describe("Dummy test", () => {
-//   it("works if true is truthy", () => {
-//     expect(true).toBeTruthy()
-//   })
+const options = { secretKey: 'trf45436dftw3333', axios: {} }
 
-//   it("DummyClass is instantiable", () => {
-//     expect(new DummyClass()).toBeInstanceOf(DummyClass)
-//   })
-// })
+describe('Payments test', () => {
+  it('works if true is truthy', () => {
+    expect(true).toBeTruthy()
+  })
 
-console.log(Payments)
+  it('PaymentsClass is instantiable', () => {
+    expect(new Payments(options)).toBeInstanceOf(Payments)
+  })
+})
+
+console.log(new Payments(options))
