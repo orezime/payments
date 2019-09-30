@@ -1,6 +1,7 @@
 export type Options = {
     secretKey: string
-    axios: any
+    axios: any,
+    host: string
 }
 
 export interface ICharge {} 

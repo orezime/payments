@@ -14,7 +14,11 @@ class Payments {
   verification: IVerificarion
 
   constructor(options: Options) {
-    this.options = { ...options, axios: this._axios() }
+    this.options = {
+      ...options,
+      axios: this._axios(),
+      host: 'https://api.paystack.co'
+    }
     this.secretKey = options.secretKey
     this.charge = new Charge(this.options)
     this.customers = new Customers(this.options)
