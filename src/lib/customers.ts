@@ -1,4 +1,6 @@
-export class Customers {
+import { ICustomers } from '../../typings'
+
+export class Customers implements ICustomers {
   options: Object
 
   constructor(options = {}) {

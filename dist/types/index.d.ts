@@ -1,7 +1,11 @@
-import { Options } from '../typings';
+import { Options, ICharge, ICustomers, IRefunds, IVerificarion } from '../typings';
 declare class Payments {
     options: Options;
-    secretKey: string;
+    charge: ICharge;
+    customers: ICustomers;
+    refunds: IRefunds;
+    verification: IVerificarion;
     constructor(options: Options);
+    _axios(): any;
 }
 export default Payments;
