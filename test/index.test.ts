@@ -3,7 +3,8 @@ import Payments from '../src/index'
 /**
  * Payments test
  */
-const options = { secretKey: 'trf45436dftw3333', axios: {}, host: 'https://api.paystack.co' }
+const secretKey = 'sk_test_a30790508551ae7a406856bd6f2fa49789255454'
+const options = { secretKey, axios: {}, host: 'https://api.paystack.co' }
 
 describe('Payments test', () => {
   it('works if true is truthy', () => {
