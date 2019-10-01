@@ -16,4 +16,5 @@ describe('Payments test', () => {
   })
 })
 
-console.log(new Payments(options))
+const { customers } = new Payments(options)
+console.log(customers)
