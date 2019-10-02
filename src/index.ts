@@ -2,16 +2,17 @@
 // import "core-js/fn/array.find"
 // ...
 import * as axios from 'axios'
-import { Charge, Customers, Refunds, Verification } from './lib'
-import { Options, ICharge, ICustomers, IRefunds, IVerificarion } from '../typings'
+import { Charge, Customers, Refunds, Verification, Banks } from './lib'
+import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IBanks } from '../typings'
 
-class Payments {
+class Paystack {
   options: Options
   secretKey: string
   charge: ICharge
   customers: ICustomers
   refunds: IRefunds
   verification: IVerificarion
+  banks: IBanks
 
   constructor(options: Options) {
     this.options = {
@@ -24,13 +25,14 @@ class Payments {
     this.customers = new Customers(this.options)
     this.refunds = new Refunds(this.options)
     this.verification = new Verification(this.options)
+    this.banks = new Banks(this.options)
   }
 
   _axios(): any {
     // @ts-ignore
-    axios.defaults.headers.common['Authorization'] = this.secretKey
+    axios.defaults.headers.common['Authorization'] = `Bearer ${this.secretKey}`
     return axios
   }
 }
 
-export default Payments
+export default Paystack

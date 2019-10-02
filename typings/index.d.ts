@@ -21,14 +21,85 @@ export type Bank = {
     updatedAt: Date
 }
 
-export interface ICharge {} 
+export type Customer = {
+    email: string,
+    integration: number,
+    domain: string,
+    customer_code: string,
+    id: number,
+    createdAt: Date,
+    updatedAt: Date
+}
 
-export interface ICustomers{} 
+export type CustomerParams = {
+    email: string
+    first_name: string
+    last_name: string
+    phone: string
+    metadata?: any
+}
 
-export interface IRefunds {} 
+export type Response = {
+    status: boolean
+    message: string
+}
 
-export interface IVerificarion {}
+export type FlagResponse = CustomerParams & {
+    domain: string,
+    customer_code: string,
+    risk_action: string,
+    id: number,
+    integration: number,
+    createdAt: Date,
+    updatedAt: Date
+}
 
-export interface IBanks { 
+export type FlagParams = {
+    customer: string
+    risk_action: string
+}
+
+export interface ICustomers {
+    listCustomers(): Promise<Array<Customer>>
+    createCustomers(context: CustomerParams): Promise<Customer>
+    /** customer can be fetched by id email or customer code **/
+    fetchCustomer(context: string): Promise<Customer>
+    updateCustomer(context: CustomerParams): Promise<Customer>
+    /** Authorization code **/
+    deActivateAuthorization(context: string): Promise<Response>
+    /** Whitelist / Blacklist Customer **/
+    flagCustomer(context: FlagParams): Promise<FlagResponse>
+}
+
+export type ChargeParams = {
+    email: string
+    amount: number
+    bank?: {
+        code: string
+        account_number: string
+    }
+    authorization_code: string
+    pin: string
+    metadata: any
+    reference: string
+    device_id: string
+    birthday?: string
+}
+
+export type ChargeResponse = {
+    reference: string,
+    status: string,
+    display_text: string
+}
+
+export interface ICharge { 
+    charge(context: ChargeParams): Promise<ChargeResponse>
+}
+
+export interface IRefunds { }
+
+export interface IVerificarion { }
+
+export interface IBanks {
     list(): Promise<Array<Bank>>
 }

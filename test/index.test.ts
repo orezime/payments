@@ -1,20 +1,23 @@
-import Payments from '../src/index'
+import Paystack from '../src/index'
+import * as axios from 'axios'
 
 /**
- * Payments test
+ * Paystack test
  */
 const secretKey = 'sk_test_a30790508551ae7a406856bd6f2fa49789255454'
-const options = { secretKey, axios: {}, host: 'https://api.paystack.co' }
+// @ts-ignore
+axios.defaults.headers.common['Authorization'] = `Bearer ${secretKey}`
+const options = { secretKey, axios: axios, host: 'https://api.paystack.co' }
 
-describe('Payments test', () => {
+describe('Paystack test', () => {
   it('works if true is truthy', () => {
     expect(true).toBeTruthy()
   })
 
-  it('PaymentsClass is instantiable', () => {
-    expect(new Payments(options)).toBeInstanceOf(Payments)
+  it('PaystackClass is instantiable', async () => {
+    const paystack = new Paystack(options)
+    expect(paystack).toBeInstanceOf(Paystack)
+    const ctx = await paystack.banks.list()
+    console.log(ctx)
   })
 })
-
-const { customers } = new Payments(options)
-console.log(customers)
