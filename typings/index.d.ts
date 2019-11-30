@@ -1,7 +1,7 @@
 export type Options = {
     secretKey: string
-    axios: any,
-    host: string
+    axios?: any,
+    host?: string
 }
 
 export type Bank = {

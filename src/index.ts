@@ -5,7 +5,7 @@ import * as axios from 'axios'
 import { Charge, Customers, Refunds, Verification, Miscellaneous } from './paystack'
 import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous } from '../typings'
 
-class Paystack {
+export class Paystack {
   options: Options
   secretKey: string
   charge: ICharge
@@ -34,5 +34,3 @@ class Paystack {
     return axios
   }
 }
-
-export default Paystack

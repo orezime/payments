@@ -1,5 +1,5 @@
 import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous } from '../typings';
-declare class Paystack {
+export declare class Paystack {
     options: Options;
     secretKey: string;
     charge: ICharge;
@@ -10,4 +10,3 @@ declare class Paystack {
     constructor(options: Options);
     _axios(): any;
 }
-export default Paystack;
