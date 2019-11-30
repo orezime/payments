@@ -1,17 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Charge {
-    constructor(options = {}) {
+var Charge = /** @class */ (function () {
+    function Charge(options) {
+        if (options === void 0) { options = {}; }
         this.options = options;
     }
-    charge(context) {
+    Charge.prototype.charge = function (context) {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
-}
+    };
+    return Charge;
+}());
 exports.Charge = Charge;
 //# sourceMappingURL=charge.js.map

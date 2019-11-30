@@ -1,1 +1,1 @@
-{"version":3,"file":"subscriptions.js","sourceRoot":"","sources":["../../../src/paystack/subscriptions.ts"],"names":[],"mappings":";;AAAA,MAAa,aAAa;IAGtB,YAAY,OAAO,GAAG,EAAE;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;CACJ;AAND,sCAMC"}
+{"version":3,"file":"subscriptions.js","sourceRoot":"","sources":["../../../src/paystack/subscriptions.ts"],"names":[],"mappings":";;AAAA;IAGI,uBAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IACL,oBAAC;AAAD,CAAC,AAND,IAMC;AANY,sCAAa"}
