@@ -15,16 +15,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // import "core-js/fn/array.find"
 // ...
 var axios = require("axios");
-var lib_1 = require("./lib");
+var paystack_1 = require("./paystack");
 var Paystack = /** @class */ (function () {
     function Paystack(options) {
         this.options = __assign(__assign({}, options), { axios: this._axios(), host: 'https://api.paystack.co' });
         this.secretKey = options.secretKey;
-        this.charge = new lib_1.Charge(this.options);
-        this.customers = new lib_1.Customers(this.options);
-        this.refunds = new lib_1.Refunds(this.options);
-        this.verification = new lib_1.Verification(this.options);
-        this.miscellaneous = new lib_1.Miscellaneous(this.options);
+        this.charge = new paystack_1.Charge(this.options);
+        this.customers = new paystack_1.Customers(this.options);
+        this.refunds = new paystack_1.Refunds(this.options);
+        this.verification = new paystack_1.Verification(this.options);
+        this.miscellaneous = new paystack_1.Miscellaneous(this.options);
     }
     Paystack.prototype._axios = function () {
         // @ts-ignore

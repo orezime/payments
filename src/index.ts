@@ -2,7 +2,7 @@
 // import "core-js/fn/array.find"
 // ...
 import * as axios from 'axios'
-import { Charge, Customers, Refunds, Verification, Miscellaneous } from './lib'
+import { Charge, Customers, Refunds, Verification, Miscellaneous } from './paystack'
 import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous } from '../typings'
 
 class Paystack {
