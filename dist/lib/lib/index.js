@@ -7,4 +7,5 @@ __export(require("./charge"));
 __export(require("./customers"));
 __export(require("./refunds"));
 __export(require("./verification"));
+__export(require("./miscellaneous"));
 //# sourceMappingURL=index.js.map

@@ -5,6 +5,14 @@ var Charge = /** @class */ (function () {
         if (options === void 0) { options = {}; }
         this.options = options;
     }
+    Charge.prototype.charge = function (context) {
+        try {
+            return new Promise(function (resolve, reject) { });
+        }
+        catch (err) {
+            throw err;
+        }
+    };
     return Charge;
 }());
 exports.Charge = Charge;

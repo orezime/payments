@@ -1,9 +1,9 @@
 import { IVerificarion } from '../../typings'
 
 export class Verification implements IVerificarion {
-  options: Object
+    options: Object
 
-  constructor(options = {}) {
-    this.options = options
-  }
+    constructor(options = {}) {
+        this.options = options
+    }
 }

@@ -21,6 +21,23 @@ export type Bank = {
     updatedAt: Date
 }
 
+export type Relationship = {
+    type: string,
+    data: Array<string>
+}
+
+export type Country = {
+    id: number,
+    name: string,
+    iso_code: string,
+    integration_defaults: Object,
+    relationships: {
+        currency: Relationship,
+        integration_feature: Relationship,
+        payment_method: Relationship
+    }
+}
+
 export type Customer = {
     email: string,
     integration: number,
@@ -92,7 +109,7 @@ export type ChargeResponse = {
     display_text: string
 }
 
-export interface ICharge { 
+export interface ICharge {
     charge(context: ChargeParams): Promise<ChargeResponse>
 }
 
@@ -101,5 +118,11 @@ export interface IRefunds { }
 export interface IVerificarion { }
 
 export interface IBanks {
-    list(): Promise<Array<Bank>>
+    listBanks(): Promise<Array<Bank>>
 }
+
+export interface ICountries {
+    listCountries(): Promise<Array<Country>>
+}
+
+export interface IMiscellaneous extends IBanks, ICountries {}

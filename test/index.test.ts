@@ -17,7 +17,16 @@ describe('Paystack test', () => {
   it('PaystackClass is instantiable', async () => {
     const paystack = new Paystack(options)
     expect(paystack).toBeInstanceOf(Paystack)
-    const ctx = await paystack.banks.list()
+    const ctx = await paystack.miscellaneous.listBanks()
+    console.log(ctx)
+  })
+
+  it('PaystackClass is instantiable', async () => {
+    const paystack = new Paystack(options)
+    expect(paystack).toBeInstanceOf(Paystack)
+    const ctx = await paystack.miscellaneous.listCountries()
     console.log(ctx)
   })
 })
+
+
