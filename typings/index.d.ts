@@ -1,6 +1,6 @@
 export type Options = {
     secretKey: string
-    axios?: any,
+    axios?: any
     host?: string
 }
 
@@ -22,29 +22,29 @@ export type Bank = {
 }
 
 export type Relationship = {
-    type: string,
+    type: string
     data: Array<string>
 }
 
 export type Country = {
-    id: number,
-    name: string,
-    iso_code: string,
-    integration_defaults: Object,
+    id: number
+    name: string
+    iso_code: string
+    integration_defaults: Object
     relationships: {
-        currency: Relationship,
-        integration_feature: Relationship,
+        currency: Relationship
+        integration_feature: Relationship
         payment_method: Relationship
     }
 }
 
 export type Customer = {
-    email: string,
-    integration: number,
-    domain: string,
-    customer_code: string,
-    id: number,
-    createdAt: Date,
+    email: string
+    integration: number
+    domain: string
+    customer_code: string
+    id: number
+    createdAt: Date
     updatedAt: Date
 }
 
@@ -62,12 +62,12 @@ export type Response = {
 }
 
 export type FlagResponse = CustomerParams & {
-    domain: string,
-    customer_code: string,
-    risk_action: string,
-    id: number,
-    integration: number,
-    createdAt: Date,
+    domain: string
+    customer_code: string
+    risk_action: string
+    id: number
+    integration: number
+    createdAt: Date
     updatedAt: Date
 }
 
@@ -104,8 +104,8 @@ export type ChargeParams = {
 }
 
 export type ChargeResponse = {
-    reference: string,
-    status: string,
+    reference: string
+    status: string
     display_text: string
 }
 
@@ -125,4 +125,124 @@ export interface ICountries {
     listCountries(): Promise<Array<Country>>
 }
 
-export interface IMiscellaneous extends IBanks, ICountries {}
+export interface IMiscellaneous extends IBanks, ICountries { }
+
+export type Transaction = {
+    callback_url: string
+    reference: string
+    amount: string
+    email: string
+    plan: string
+    invoice_limit: number
+    metadata: Object
+    subaccount: string
+    transaction_charge: number
+    bearer: string
+    channels?: Array<string>
+}
+
+export type TransactionResponse = {
+    status: true
+    message: string
+    data: {
+        authorization_url: string
+        access_code: string
+        reference: string
+    }
+}
+
+export type TransactionParams = {
+    reference: string
+    amount: number
+    email: string
+}
+
+export type Authorization = {
+    authorization_code: string
+    card_type: string
+    last4: number
+    exp_month: number
+    exp_year: number
+    bin: number
+    bank: string
+    channel: string
+    signature: string
+    reusable: boolean
+    country_code: string
+}
+
+export type History = {
+    type: string
+    message: string
+    time: number
+}
+
+export type Log = {
+    time_spent: number
+    attempts: number
+    authentication: string | null
+    errors: number
+    success: boolean
+    mobile: boolean
+    input: Array<any>
+    channel: string | null
+    history: Array<History>
+}
+
+export type VerifyTransactionResponse = {
+    customer: Customer
+    authorization: Authorization
+    log: Log
+    fees: number | null
+    amount: number
+    currency: string
+    transaction_date: string
+    status: string
+    reference: string
+    domain: string
+    metadata: number
+    gateway_response: string
+    message: string | null
+    channel: string
+    ip_address: string
+    plan: string
+}
+
+export type ListTransactionsParams = {
+    perPage: number
+    page: number
+    customer: number
+    status: string
+    from: string
+    to: string
+    amount: number
+}
+
+export type Timeline = {
+    from: string
+    to: string
+}
+
+export type CurrencyType = {
+    currency: string
+    amount: number
+}
+
+export type Total = {
+    total_transactions: number
+    unique_customers: number
+    total_volume: number
+    total_volume_by_currency: Array<CurrencyType>
+    pending_transfers: number
+    pending_transfers_by_currency: Array<CurrencyType>
+}
+
+export interface ITransactions {
+    initializeTransaction(context: TransactionParams): Promise<TransactionResponse>
+    verifyTransaction(ref: string): Promise<VerifyTransactionResponse>
+    listTransactions(context: ListTransactionsParams): Promise<Array<Transaction>>
+    fetchTransaction(transactionId: number): Promise<Transaction>
+    chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse>
+    viewTransactionTimeline(transactionId: number): Promise<Log>
+    transactionTotals(context: Timeline): Promise<Total>
+}
