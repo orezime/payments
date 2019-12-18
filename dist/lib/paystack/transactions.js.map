@@ -1,1 +1,1 @@
-{"version":3,"file":"transactions.js","sourceRoot":"","sources":["../../../src/paystack/transactions.ts"],"names":[],"mappings":";;AAAA;IAGI,sBAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IACL,mBAAC;AAAD,CAAC,AAND,IAMC;AANY,oCAAY"}
+{"version":3,"file":"transactions.js","sourceRoot":"","sources":["../../../src/paystack/transactions.ts"],"names":[],"mappings":";AAAA,gDAAgD;;AAEhD;IAGI,sBAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IAED,4CAAqB,GAArB,cAAyB,CAAC;IAC9B,mBAAC;AAAD,CAAC,AARD,IAQC;AARY,oCAAY"}
