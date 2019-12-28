@@ -18,6 +18,12 @@ import {
 import { Util } from './util'
 import { AxiosResponse } from 'axios'
 
+/**
+ * @constructor Transactions
+ * Interfaces with paystack REST API to handle payment and user transactions
+ * https://developers.paystack.co/reference#initialize-a-transaction
+ * 
+ */
 export class Transactions extends Util implements ITransactions {
     options: Options
     url: string
@@ -31,6 +37,12 @@ export class Transactions extends Util implements ITransactions {
         this.axios = axios
     }
 
+    /**
+     * @param {TransactionParams} - TransactionParams
+     * @returns {Promise<TransactionResponse>} 
+     * @throws - throws error if something goes wrong
+     * https://developers.paystack.co/reference#initialize-a-transaction
+     */
     async initializeTransaction(context: TransactionParams): Promise<TransactionResponse> {
         try {
             const { axios, url } = this
@@ -43,6 +55,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {string} - reference
+     * @returns {Promise<VerifyTransactionResponse>} 
+     * @throws - throws error if something goes wrong
+     * https://developers.paystack.co/reference#verify-transaction
+     */
     async verifyTransaction(ref: string): Promise<VerifyTransactionResponse> {
         try {
             const { axios, url } = this
@@ -57,6 +75,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {ListTransactionsParams} - ListTransactionsParams
+     * @returns {Promise<Array<Transaction>>}
+     * @throws - throws error if something goes wrong
+     * https://developers.paystack.co/reference#list-transactions
+     */
     async listTransactions(context?: ListTransactionsParams): Promise<Array<Transaction>> {
         try {
             const { axios, url } = this
@@ -67,6 +91,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {number} - transactionId
+     * @returns {Promise<Transaction>}
+     * @throws - throws error if something goes wrong
+     * https://developers.paystack.co/reference#fetch-transaction
+     */
     async fetchTransaction(transactionId: number): Promise<Transaction> {
         try {
             const { axios, url } = this
@@ -80,6 +110,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {Transaction} - Transaction
+     * @returns {Promise<VerifyTransactionResponse>}
+     * @throws - throws error if something goes wrong
+     * https://developers.paystack.co/reference#charge-authorization
+     */
     async chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse> {
         try {
             const { axios, url } = this
@@ -93,6 +129,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {number} - transactionId
+     * @returns {Promise<Log>}
+     * @throws - throws error if something goes wrong
+     * https://developers.paystack.co/reference#view-transaction-timeline
+     */
     async viewTransactionTimeline(transactionId: number): Promise<Log> {
         try {
             const { axios, url } = this
@@ -106,6 +148,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {Object} - ctx
+     * @returns {Promise<IJob>} - returns a job object
+     * @throws - throws error if something goes wrong
+     * creates a new Workoo job
+     */
     async transactionTotals(context: Timeline): Promise<Total> {
         try {
             return new Promise(() => null)
@@ -114,6 +162,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {Object} - ctx
+     * @returns {Promise<IJob>} - returns a job object
+     * @throws - throws error if something goes wrong
+     * creates a new Workoo job
+     */
     async exportTransactions(context: exportParams): Promise<exportResponse> {
         try {
             return new Promise(() => null)
@@ -122,6 +176,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {Object} - ctx
+     * @returns {Promise<IJob>} - returns a job object
+     * @throws - throws error if something goes wrong
+     * creates a new Workoo job
+     */
     async requestReauthorization(context: ChargeParams): Promise<reAuthorizationResponse> {
         try {
             return new Promise(() => null)
@@ -130,6 +190,12 @@ export class Transactions extends Util implements ITransactions {
         }
     }
 
+    /**
+     * @param {Object} - ctx
+     * @returns {Promise<IJob>} - returns a job object
+     * @throws - throws error if something goes wrong
+     * creates a new Workoo job
+     */
     async checkAuthorization(context: ChargeParams): Promise<checkAuthResponse> {
         try {
             return new Promise(() => null)
