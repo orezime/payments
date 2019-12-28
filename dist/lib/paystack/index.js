@@ -8,4 +8,6 @@ __export(require("./customers"));
 __export(require("./refunds"));
 __export(require("./verification"));
 __export(require("./miscellaneous"));
+__export(require("./transactions"));
+__export(require("./util"));
 //# sourceMappingURL=index.js.map

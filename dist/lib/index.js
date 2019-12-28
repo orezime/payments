@@ -18,17 +18,19 @@ var axios = require("axios");
 var paystack_1 = require("./paystack");
 var Paystack = /** @class */ (function () {
     function Paystack(options) {
-        this.options = __assign(__assign({}, options), { axios: this._axios(), host: 'https://api.paystack.co' });
-        this.secretKey = options.secretKey;
+        var secretKey = options.secretKey;
+        this.options = __assign(__assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
+        this.secretKey = secretKey;
         this.charge = new paystack_1.Charge(this.options);
         this.customers = new paystack_1.Customers(this.options);
         this.refunds = new paystack_1.Refunds(this.options);
         this.verification = new paystack_1.Verification(this.options);
         this.miscellaneous = new paystack_1.Miscellaneous(this.options);
+        this.transactions = new paystack_1.Transactions(this.options);
     }
-    Paystack.prototype._axios = function () {
+    Paystack.prototype._axios = function (secretKey) {
         // @ts-ignore
-        axios.defaults.headers.common['Authorization'] = "Bearer " + this.secretKey;
+        axios.defaults.headers.common['Authorization'] = "Bearer " + secretKey;
         return axios;
     };
     return Paystack;

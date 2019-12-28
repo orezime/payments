@@ -1,4 +1,4 @@
-import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous } from '../typings';
+import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous, ITransactions } from '../typings';
 export declare class Paystack {
     options: Options;
     secretKey: string;
@@ -7,6 +7,7 @@ export declare class Paystack {
     refunds: IRefunds;
     verification: IVerificarion;
     miscellaneous: IMiscellaneous;
+    transactions: ITransactions;
     constructor(options: Options);
-    _axios(): any;
+    _axios(secretKey: string): any;
 }

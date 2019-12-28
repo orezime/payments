@@ -4,9 +4,7 @@ import { Paystack } from '../src/index'
  * Paystack test
  */
 const secretKey = 'sk_test_a30790508551ae7a406856bd6f2fa49789255454'
-const options = { secretKey }
-
-const paystack = new Paystack(options)
+const paystack = new Paystack({ secretKey })
 
 describe('Paystack test', () => {
   it('works if true is truthy', () => {
@@ -15,14 +13,18 @@ describe('Paystack test', () => {
 
   it('PaystackClass is instantiable', async () => {
     expect(paystack).toBeInstanceOf(Paystack)
-    const ctx = await paystack.miscellaneous.listBanks()
-    console.log(ctx)
+    await paystack.miscellaneous.listBanks()
   })
 
   it('PaystackClass is instantiable', async () => {
     expect(paystack).toBeInstanceOf(Paystack)
-    const ctx = await paystack.miscellaneous.listCountries()
-    console.log(ctx)
+    await paystack.miscellaneous.listCountries()
+  })
+
+  it('PaystackClass is instantiable', async () => {
+    expect(paystack).toBeInstanceOf(Paystack)
+    const ctx = await paystack.transactions.listTransactions()
+    // console.log(ctx)
   })
 })
 

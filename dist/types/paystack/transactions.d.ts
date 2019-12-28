@@ -1,10 +1,13 @@
-import { ITransactions, TransactionParams, TransactionResponse, VerifyTransactionResponse, ListTransactionsParams, Transaction, Log, Timeline, Total, ChargeParams, exportParams, exportResponse, reAuthorizationResponse, checkAuthResponse } from '../../typings';
-export declare class Transactions implements ITransactions {
-    options: Object;
-    constructor(options?: {});
+import { Options, ITransactions, TransactionParams, TransactionResponse, VerifyTransactionResponse, ListTransactionsParams, Transaction, Log, Timeline, Total, ChargeParams, exportParams, exportResponse, reAuthorizationResponse, checkAuthResponse } from '../../typings';
+import { Util } from './util';
+export declare class Transactions extends Util implements ITransactions {
+    options: Options;
+    url: string;
+    axios: any;
+    constructor(options: Options);
     initializeTransaction(context: TransactionParams): Promise<TransactionResponse>;
     verifyTransaction(ref: string): Promise<VerifyTransactionResponse>;
-    listTransactions(context: ListTransactionsParams): Promise<Array<Transaction>>;
+    listTransactions(context?: ListTransactionsParams): Promise<Array<Transaction>>;
     fetchTransaction(transactionId: number): Promise<Transaction>;
     chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse>;
     viewTransactionTimeline(transactionId: number): Promise<Log>;

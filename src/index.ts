@@ -16,12 +16,13 @@ export class Paystack {
   transactions: ITransactions
 
   constructor(options: Options) {
+    const secretKey = options.secretKey
     this.options = {
       ...options,
-      axios: this._axios(),
+      axios: this._axios(secretKey),
       host: 'https://api.paystack.co'
     }
-    this.secretKey = options.secretKey
+    this.secretKey = secretKey
     this.charge = new Charge(this.options)
     this.customers = new Customers(this.options)
     this.refunds = new Refunds(this.options)
@@ -30,9 +31,9 @@ export class Paystack {
     this.transactions = new Transactions(this.options)
   }
 
-  _axios(): any {
+  _axios(secretKey: string): any {
     // @ts-ignore
-    axios.defaults.headers.common['Authorization'] = `Bearer ${this.secretKey}`
+    axios.defaults.headers.common['Authorization'] = `Bearer ${secretKey}`
     return axios
   }
 }

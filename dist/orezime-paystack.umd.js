@@ -28,6 +28,20 @@
     See the Apache Version 2.0 License for specific language governing permissions
     and limitations under the License.
     ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
 
     var __assign = function() {
         __assign = Object.assign || function __assign(t) {
@@ -3314,19 +3328,232 @@
         return Miscellaneous;
     }());
 
+    var Util = /** @class */ (function () {
+        function Util(options) {
+            this.options = options;
+        }
+        Util.prototype.validateContext = function (requiredFields, context) {
+            try {
+                var keys_1 = Object.keys(context), found_1 = true;
+                requiredFields.forEach(function (requiredField) {
+                    found_1 = found_1 && keys_1.includes(requiredField);
+                });
+                var docs = 'https://developers.paystack.co/reference', msg = "Missing field(s). The method your trying to call requires the following object fields " + requiredFields + " as params. " + docs;
+                if (!found_1)
+                    throw new Error(msg + docs);
+            }
+            catch (err) {
+                throw err;
+            }
+        };
+        Util.prototype.buildQueryParams = function (context) {
+            try {
+                var query = '', keys = Object.keys(context);
+                if (keys.length <= 0)
+                    return query;
+                for (var key in context) {
+                    query += key + "=" + context[key];
+                }
+                return "?" + query;
+            }
+            catch (err) {
+                throw err;
+            }
+        };
+        return Util;
+    }());
+
+    var Transactions = /** @class */ (function (_super) {
+        __extends(Transactions, _super);
+        function Transactions(options) {
+            var _this = this;
+            var host = options.host, axios = options.axios;
+            _this = _super.call(this, options) || this;
+            _this.options = options;
+            _this.url = host + "/transaction";
+            _this.axios = axios;
+            return _this;
+        }
+        Transactions.prototype.initializeTransaction = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/initialize/';
+                        requiredFields = ['amount', 'email'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.verifyTransaction = function (ref) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, docs, path;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        if (!ref) {
+                            docs = 'https://developers.paystack.co/reference#verify-transaction';
+                            throw new Error("Missing Parameter 'reference' is required for this method. " + docs);
+                        }
+                        path = "/verify/" + ref;
+                        return [2 /*return*/, axios.get(url$$1 + path).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.listTransactions = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, query;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        query = this.buildQueryParams(context || {});
+                        return [2 /*return*/, axios.get(url$$1 + query).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.fetchTransaction = function (transactionId) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, docs;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        if (!transactionId) {
+                            docs = 'https://developers.paystack.co/reference#fetch-transaction';
+                            throw new Error("Missing Parameter 'transactionId' is required for this method. " + docs);
+                        }
+                        return [2 /*return*/, axios.get(url$$1 + "/" + transactionId).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.chargeAuthorization = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/charge_authorization/';
+                        requiredFields = ['amount', 'email', 'authorization_code'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.viewTransactionTimeline = function (transactionId) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, docs;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        if (!transactionId) {
+                            docs = 'https://developers.paystack.co/reference#view-transaction-timeline';
+                            throw new Error("Missing Parameter 'transactionId' is required for this method. " + docs);
+                        }
+                        return [2 /*return*/, axios.get(url$$1 + "/timeline/" + transactionId).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.transactionTotals = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    try {
+                        return [2 /*return*/, new Promise(function () { return null; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.exportTransactions = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    try {
+                        return [2 /*return*/, new Promise(function () { return null; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.requestReauthorization = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    try {
+                        return [2 /*return*/, new Promise(function () { return null; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        Transactions.prototype.checkAuthorization = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    try {
+                        return [2 /*return*/, new Promise(function () { return null; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        return Transactions;
+    }(Util));
+
     var Paystack = /** @class */ (function () {
         function Paystack(options) {
-            this.options = __assign(__assign({}, options), { axios: this._axios(), host: 'https://api.paystack.co' });
-            this.secretKey = options.secretKey;
+            var secretKey = options.secretKey;
+            this.options = __assign(__assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
+            this.secretKey = secretKey;
             this.charge = new Charge(this.options);
             this.customers = new Customers(this.options);
             this.refunds = new Refunds(this.options);
             this.verification = new Verification(this.options);
             this.miscellaneous = new Miscellaneous(this.options);
+            this.transactions = new Transactions(this.options);
         }
-        Paystack.prototype._axios = function () {
+        Paystack.prototype._axios = function (secretKey) {
             // @ts-ignore
-            undefined = "Bearer " + this.secretKey;
+            undefined = "Bearer " + secretKey;
             return axios$2;
         };
         return Paystack;

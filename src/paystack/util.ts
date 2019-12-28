@@ -21,4 +21,17 @@ export class Util {
             throw err
         }
     }
+
+    buildQueryParams(context: any): string {
+        try {
+            let query = '', keys = Object.keys(context)
+            if (keys.length <= 0) return query
+            for (let key in context) {
+                query += `${key}=${context[key]}`
+            }
+            return `?${query}`
+        } catch (err) {
+            throw err
+        }
+    }
 }

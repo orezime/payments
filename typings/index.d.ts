@@ -210,13 +210,13 @@ export type VerifyTransactionResponse = {
 }
 
 export type ListTransactionsParams = {
-    perPage: number
-    page: number
-    customer: number
-    status: string
-    from: string
-    to: string
-    amount: number
+    perPage?: number
+    page?: number
+    customer?: number
+    status?: string
+    from?: string
+    to?: string
+    amount?: number
 }
 
 export type Timeline = {
@@ -267,7 +267,7 @@ export type checkAuthResponse = Response & {
 export interface ITransactions {
     initializeTransaction(context: TransactionParams): Promise<TransactionResponse>
     verifyTransaction(ref: string): Promise<VerifyTransactionResponse>
-    listTransactions(context: ListTransactionsParams): Promise<Array<Transaction>>
+    listTransactions(context?: ListTransactionsParams): Promise<Array<Transaction>>
     fetchTransaction(transactionId: number): Promise<Transaction>
     chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse>
     viewTransactionTimeline(transactionId: number): Promise<Log>
