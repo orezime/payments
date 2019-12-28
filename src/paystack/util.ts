@@ -1,11 +1,11 @@
-import { Options } from '../../typings'
+import { Options, IUtil } from '../../typings'
 
 /**
  * @constructor Transactions
  * Provides helper methods and error handling for the whole package
  * 
  */
-export class Util {
+export class Util implements IUtil {
     options: Options
 
     constructor(options: Options) {

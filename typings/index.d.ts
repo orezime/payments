@@ -264,6 +264,43 @@ export type checkAuthResponse = Response & {
     data: CurrencyType
 }
 
+export type Product = {
+    integration: number
+    name: string
+    description: string
+    product_code?: string
+    price: number
+    currency: string
+    quantity: number
+    quantity_sold: any
+    type: string
+    image_path: string
+    file_path: string
+    is_shippable: boolean
+    unlimited: boolean
+    domain: string
+    active: boolean
+    features?: any
+    in_stock?: boolean
+    metadata: any
+    id: number
+    createdAt?: Date
+    updatedAt?: Date
+}
+
+export type ProductResponse = Response & {
+    data: Product
+}
+
+export type ListProductsResponse = Response & {
+    data: Array<Product>
+}
+
+export interface IUtil {
+    validateContext(requiredFields: Array<string>, context: any): void
+    buildQueryParams(context: any): string
+}
+
 export interface ITransactions {
     initializeTransaction(context: TransactionParams): Promise<TransactionResponse>
     verifyTransaction(ref: string): Promise<VerifyTransactionResponse>
@@ -275,4 +312,11 @@ export interface ITransactions {
     exportTransactions(context?: exportParams): Promise<exportResponse>
     requestReauthorization(context: ChargeParams): Promise<reAuthorizationResponse>
     checkAuthorization(context: ChargeParams): Promise<checkAuthResponse>
+}
+
+export interface IProduct {
+    createProduct(context: Product): Promise<ProductResponse>
+    listProducts(): Promise<Array<ListProductsResponse>>
+    fetchProduct(productId: number): Promise<Array<ProductResponse>>
+    updateProduct(context: Product): Promise<Array<ProductResponse>>
 }
