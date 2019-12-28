@@ -3352,9 +3352,9 @@
                 if (keys.length <= 0)
                     return query;
                 for (var key in context) {
-                    query += key + "=" + context[key];
+                    query += key + "=" + context[key] + "&";
                 }
-                return "?" + query;
+                return "?" + query.slice(0, -1);
             }
             catch (err) {
                 throw err;
@@ -3363,6 +3363,12 @@
         return Util;
     }());
 
+    /**
+     * @constructor Transactions
+     * Interfaces with paystack REST API to handle payment and user transactions
+     * @docs - https://developers.paystack.co/reference#initialize-a-transaction
+     *
+     */
     var Transactions = /** @class */ (function (_super) {
         __extends(Transactions, _super);
         function Transactions(options) {
@@ -3374,6 +3380,12 @@
             _this.axios = axios;
             return _this;
         }
+        /**
+         * @param {TransactionParams} - TransactionParams
+         * @returns {Promise<TransactionResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#initialize-a-transaction
+         */
         Transactions.prototype.initializeTransaction = function (context) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, axios, url$$1, path, requiredFields;
@@ -3392,6 +3404,12 @@
                 });
             });
         };
+        /**
+         * @param {string} - reference
+         * @returns {Promise<VerifyTransactionResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#verify-transaction
+         */
         Transactions.prototype.verifyTransaction = function (ref) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, axios, url$$1, docs, path;
@@ -3412,6 +3430,12 @@
                 });
             });
         };
+        /**
+         * @param {ListTransactionsParams} - ListTransactionsParams
+         * @returns {Promise<Array<Transaction>>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#list-transactions
+         */
         Transactions.prototype.listTransactions = function (context) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, axios, url$$1, query;
@@ -3428,6 +3452,12 @@
                 });
             });
         };
+        /**
+         * @param {number} - transactionId
+         * @returns {Promise<Transaction>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#fetch-transaction
+         */
         Transactions.prototype.fetchTransaction = function (transactionId) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, axios, url$$1, docs;
@@ -3447,6 +3477,12 @@
                 });
             });
         };
+        /**
+         * @param {Transaction} - Transaction
+         * @returns {Promise<VerifyTransactionResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#charge-authorization
+         */
         Transactions.prototype.chargeAuthorization = function (context) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, axios, url$$1, path, requiredFields;
@@ -3465,6 +3501,12 @@
                 });
             });
         };
+        /**
+         * @param {number} - transactionId
+         * @returns {Promise<Log>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#view-transaction-timeline
+         */
         Transactions.prototype.viewTransactionTimeline = function (transactionId) {
             return __awaiter(this, void 0, void 0, function () {
                 var _a, axios, url$$1, docs;
@@ -3484,11 +3526,20 @@
                 });
             });
         };
+        /**
+         * @param {Timeline} - Timeline
+         * @returns {Promise<Total>>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#transaction-totals
+         */
         Transactions.prototype.transactionTotals = function (context) {
             return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
+                var _a, axios, url$$1, query;
+                return __generator(this, function (_b) {
                     try {
-                        return [2 /*return*/, new Promise(function () { return null; })];
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        query = this.buildQueryParams(context || {});
+                        return [2 /*return*/, axios.get(url$$1 + "/totals" + query).then(function (res) { return res.data; })];
                     }
                     catch (err) {
                         throw err;
@@ -3497,11 +3548,20 @@
                 });
             });
         };
+        /**
+         * @param {exportParams} - exportParams
+         * @returns {Promise<exportResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#export-transactions
+         */
         Transactions.prototype.exportTransactions = function (context) {
             return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
+                var _a, axios, url$$1, query;
+                return __generator(this, function (_b) {
                     try {
-                        return [2 /*return*/, new Promise(function () { return null; })];
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        query = this.buildQueryParams(context || {});
+                        return [2 /*return*/, axios.get(url$$1 + "/export" + query).then(function (res) { return res.data; })];
                     }
                     catch (err) {
                         throw err;
@@ -3510,11 +3570,22 @@
                 });
             });
         };
+        /**
+         * @param {ChargeParams} - ChargeParams
+         * @returns {Promise<reAuthorizationResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#request-reauthorization
+         */
         Transactions.prototype.requestReauthorization = function (context) {
             return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
                     try {
-                        return [2 /*return*/, new Promise(function () { return null; })];
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/request_reauthorization/';
+                        requiredFields = ['amount', 'email', 'authorization_code'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
                     }
                     catch (err) {
                         throw err;
@@ -3523,11 +3594,22 @@
                 });
             });
         };
+        /**
+         * @param {ChargeParams} - ChargeParams
+         * @returns {Promise<checkAuthResponse>}
+         * @throws - throws error if something goes wrong
+         * @params - https://developers.paystack.co/reference#check-authorization
+         */
         Transactions.prototype.checkAuthorization = function (context) {
             return __awaiter(this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
                     try {
-                        return [2 /*return*/, new Promise(function () { return null; })];
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/check_authorization/';
+                        requiredFields = ['amount', 'email', 'authorization_code'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
                     }
                     catch (err) {
                         throw err;

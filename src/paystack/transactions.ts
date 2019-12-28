@@ -21,7 +21,7 @@ import { AxiosResponse } from 'axios'
 /**
  * @constructor Transactions
  * Interfaces with paystack REST API to handle payment and user transactions
- * https://developers.paystack.co/reference#initialize-a-transaction
+ * @docs - https://developers.paystack.co/reference#initialize-a-transaction
  * 
  */
 export class Transactions extends Util implements ITransactions {
@@ -41,7 +41,7 @@ export class Transactions extends Util implements ITransactions {
      * @param {TransactionParams} - TransactionParams
      * @returns {Promise<TransactionResponse>} 
      * @throws - throws error if something goes wrong
-     * https://developers.paystack.co/reference#initialize-a-transaction
+     * @docs - https://developers.paystack.co/reference#initialize-a-transaction
      */
     async initializeTransaction(context: TransactionParams): Promise<TransactionResponse> {
         try {
@@ -59,7 +59,7 @@ export class Transactions extends Util implements ITransactions {
      * @param {string} - reference
      * @returns {Promise<VerifyTransactionResponse>} 
      * @throws - throws error if something goes wrong
-     * https://developers.paystack.co/reference#verify-transaction
+     * @docs - https://developers.paystack.co/reference#verify-transaction
      */
     async verifyTransaction(ref: string): Promise<VerifyTransactionResponse> {
         try {
@@ -79,7 +79,7 @@ export class Transactions extends Util implements ITransactions {
      * @param {ListTransactionsParams} - ListTransactionsParams
      * @returns {Promise<Array<Transaction>>}
      * @throws - throws error if something goes wrong
-     * https://developers.paystack.co/reference#list-transactions
+     * @docs - https://developers.paystack.co/reference#list-transactions
      */
     async listTransactions(context?: ListTransactionsParams): Promise<Array<Transaction>> {
         try {
@@ -95,7 +95,7 @@ export class Transactions extends Util implements ITransactions {
      * @param {number} - transactionId
      * @returns {Promise<Transaction>}
      * @throws - throws error if something goes wrong
-     * https://developers.paystack.co/reference#fetch-transaction
+     * @docs - https://developers.paystack.co/reference#fetch-transaction
      */
     async fetchTransaction(transactionId: number): Promise<Transaction> {
         try {
@@ -114,7 +114,7 @@ export class Transactions extends Util implements ITransactions {
      * @param {Transaction} - Transaction
      * @returns {Promise<VerifyTransactionResponse>}
      * @throws - throws error if something goes wrong
-     * https://developers.paystack.co/reference#charge-authorization
+     * @docs - https://developers.paystack.co/reference#charge-authorization
      */
     async chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse> {
         try {
@@ -133,7 +133,7 @@ export class Transactions extends Util implements ITransactions {
      * @param {number} - transactionId
      * @returns {Promise<Log>}
      * @throws - throws error if something goes wrong
-     * https://developers.paystack.co/reference#view-transaction-timeline
+     * @docs - https://developers.paystack.co/reference#view-transaction-timeline
      */
     async viewTransactionTimeline(transactionId: number): Promise<Log> {
         try {
@@ -149,56 +149,68 @@ export class Transactions extends Util implements ITransactions {
     }
 
     /**
-     * @param {Object} - ctx
-     * @returns {Promise<IJob>} - returns a job object
+     * @param {Timeline} - Timeline
+     * @returns {Promise<Total>>}
      * @throws - throws error if something goes wrong
-     * creates a new Workoo job
+     * @docs - https://developers.paystack.co/reference#transaction-totals
      */
-    async transactionTotals(context: Timeline): Promise<Total> {
+    async transactionTotals(context?: Timeline): Promise<Total> {
         try {
-            return new Promise(() => null)
+            const { axios, url } = this
+            const query: string = this.buildQueryParams(context || {})
+            return axios.get(`${url}/totals${query}`).then((res: AxiosResponse) => res.data)
         } catch (err) {
             throw err
         }
     }
 
     /**
-     * @param {Object} - ctx
-     * @returns {Promise<IJob>} - returns a job object
+     * @param {exportParams} - exportParams
+     * @returns {Promise<exportResponse>}
      * @throws - throws error if something goes wrong
-     * creates a new Workoo job
+     * @docs - https://developers.paystack.co/reference#export-transactions
      */
-    async exportTransactions(context: exportParams): Promise<exportResponse> {
+    async exportTransactions(context?: exportParams): Promise<exportResponse> {
         try {
-            return new Promise(() => null)
+            const { axios, url } = this
+            const query: string = this.buildQueryParams(context || {})
+            return axios.get(`${url}/export${query}`).then((res: AxiosResponse) => res.data)
         } catch (err) {
             throw err
         }
     }
 
     /**
-     * @param {Object} - ctx
-     * @returns {Promise<IJob>} - returns a job object
+     * @param {ChargeParams} - ChargeParams
+     * @returns {Promise<reAuthorizationResponse>}
      * @throws - throws error if something goes wrong
-     * creates a new Workoo job
+     * @docs - https://developers.paystack.co/reference#request-reauthorization
      */
     async requestReauthorization(context: ChargeParams): Promise<reAuthorizationResponse> {
         try {
-            return new Promise(() => null)
+            const { axios, url } = this
+            const path: string = '/request_reauthorization/'
+            const requiredFields: Array<string> = ['amount', 'email', 'authorization_code']
+            this.validateContext(requiredFields, context)
+            return axios.post(url + path, context).then((res: AxiosResponse) => res.data)
         } catch (err) {
             throw err
         }
     }
 
     /**
-     * @param {Object} - ctx
-     * @returns {Promise<IJob>} - returns a job object
+     * @param {ChargeParams} - ChargeParams
+     * @returns {Promise<checkAuthResponse>}
      * @throws - throws error if something goes wrong
-     * creates a new Workoo job
+     * @params - https://developers.paystack.co/reference#check-authorization
      */
     async checkAuthorization(context: ChargeParams): Promise<checkAuthResponse> {
         try {
-            return new Promise(() => null)
+            const { axios, url } = this
+            const path: string = '/check_authorization/'
+            const requiredFields: Array<string> = ['amount', 'email', 'authorization_code']
+            this.validateContext(requiredFields, context)
+            return axios.post(url + path, context).then((res: AxiosResponse) => res.data)
         } catch (err) {
             throw err
         }

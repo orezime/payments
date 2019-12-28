@@ -271,8 +271,8 @@ export interface ITransactions {
     fetchTransaction(transactionId: number): Promise<Transaction>
     chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse>
     viewTransactionTimeline(transactionId: number): Promise<Log>
-    transactionTotals(context: Timeline): Promise<Total>
-    exportTransactions(context: exportParams): Promise<exportResponse>
+    transactionTotals(context?: Timeline): Promise<Total>
+    exportTransactions(context?: exportParams): Promise<exportResponse>
     requestReauthorization(context: ChargeParams): Promise<reAuthorizationResponse>
     checkAuthorization(context: ChargeParams): Promise<checkAuthResponse>
 }

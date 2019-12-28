@@ -27,9 +27,9 @@ export class Util {
             let query = '', keys = Object.keys(context)
             if (keys.length <= 0) return query
             for (let key in context) {
-                query += `${key}=${context[key]}`
+                query += `${key}=${context[key]}&`
             }
-            return `?${query}`
+            return `?${query.slice(0, -1)}`
         } catch (err) {
             throw err
         }
