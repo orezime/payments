@@ -2396,9 +2396,6 @@ img {
 			<a href="disputes.html" class="tsd-kind-icon">Disputes</a>
 		</li>
 		<li class=" tsd-kind-class">
-			<a href="errors.html" class="tsd-kind-icon">Errors</a>
-		</li>
-		<li class=" tsd-kind-class">
 			<a href="invoices.html" class="tsd-kind-icon">Invoices</a>
 		</li>
 		<li class=" tsd-kind-class">
@@ -2464,6 +2461,16 @@ img {
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<dl class="tsd-comment-tags">
+					<dt>constructor</dt>
+					<dd><p>Transactions
+						Provides helper methods and error handling for the whole package</p>
+					</dd>
+				</dl>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
@@ -2515,7 +2522,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/orezime/payments/blob/ef316cc/src/paystack/util.ts#L4">paystack/util.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/orezime/payments/blob/03abd26/src/paystack/util.ts#L9">paystack/util.ts:9</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2537,7 +2544,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Options</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/orezime/payments/blob/ef316cc/src/paystack/util.ts#L4">paystack/util.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/orezime/payments/blob/03abd26/src/paystack/util.ts#L9">paystack/util.ts:9</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2554,9 +2561,20 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/orezime/payments/blob/ef316cc/src/paystack/util.ts#L25">paystack/util.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/orezime/payments/blob/03abd26/src/paystack/util.ts#L44">paystack/util.ts:44</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<dl class="tsd-comment-tags">
+								<dt>throws</dt>
+								<dd><ul>
+										<li>throws error if something goes wrong
+											Builds a query param from a object
+										{ name: &#39;john&#39;, place: &#39;here&#39; } -&gt; ?name=john&amp;place=here</li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
@@ -2577,9 +2595,19 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/orezime/payments/blob/ef316cc/src/paystack/util.ts#L10">paystack/util.ts:10</a></li>
+								<li>Defined in <a href="https://github.com/orezime/payments/blob/03abd26/src/paystack/util.ts#L22">paystack/util.ts:22</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<dl class="tsd-comment-tags">
+								<dt>throws</dt>
+								<dd><ul>
+										<li>throws error if something goes wrong
+										cross checks the required field with context to make sure all fields required are fulfiled</li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>

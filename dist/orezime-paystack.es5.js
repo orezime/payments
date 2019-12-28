@@ -3184,97 +3184,6 @@ var axios$2 = /*#__PURE__*/Object.freeze({
     __moduleExports: axios$1
 });
 
-var Charge = /** @class */ (function () {
-    function Charge(options) {
-        if (options === void 0) { options = {}; }
-        this.options = options;
-    }
-    Charge.prototype.charge = function (context) {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    return Charge;
-}());
-
-var Customers = /** @class */ (function () {
-    function Customers(options) {
-        if (options === void 0) { options = {}; }
-        this.options = options;
-    }
-    Customers.prototype.listCustomers = function () {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    Customers.prototype.createCustomers = function (context) {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    /** customer can be fetched by id email or customer code **/
-    Customers.prototype.fetchCustomer = function (context) {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    Customers.prototype.updateCustomer = function (context) {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    /** Authorization code **/
-    Customers.prototype.deActivateAuthorization = function (context) {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    /** Whitelist / Blacklist Customer **/
-    Customers.prototype.flagCustomer = function (context) {
-        try {
-            return new Promise(function (resolve, reject) { });
-        }
-        catch (err) {
-            throw err;
-        }
-    };
-    return Customers;
-}());
-
-var Refunds = /** @class */ (function () {
-    function Refunds(options) {
-        if (options === void 0) { options = {}; }
-        this.options = options;
-    }
-    return Refunds;
-}());
-
-var Verification = /** @class */ (function () {
-    function Verification(options) {
-        if (options === void 0) { options = {}; }
-        this.options = options;
-    }
-    return Verification;
-}());
-
 var Miscellaneous = /** @class */ (function () {
     function Miscellaneous(options) {
         this.options = options;
@@ -3322,10 +3231,22 @@ var Miscellaneous = /** @class */ (function () {
     return Miscellaneous;
 }());
 
+/**
+ * @constructor Transactions
+ * Provides helper methods and error handling for the whole package
+ *
+ */
 var Util = /** @class */ (function () {
     function Util(options) {
         this.options = options;
     }
+    /**
+     * @param {Array<string>} - requiredFields
+     * @param {Object} - context
+     * @returns {void}
+     * @throws - throws error if something goes wrong
+     * cross checks the required field with context to make sure all fields required are fulfiled
+     */
     Util.prototype.validateContext = function (requiredFields, context) {
         try {
             var keys_1 = Object.keys(context), found_1 = true;
@@ -3340,6 +3261,13 @@ var Util = /** @class */ (function () {
             throw err;
         }
     };
+    /**
+     * @param {Object} - context
+     * @returns {void}
+     * @throws - throws error if something goes wrong
+     * Builds a query param from a object
+     * { name: 'john', place: 'here' } -> ?name=john&place=here
+     */
     Util.prototype.buildQueryParams = function (context) {
         try {
             var query = '', keys = Object.keys(context);
@@ -3620,10 +3548,6 @@ var Paystack = /** @class */ (function () {
         var secretKey = options.secretKey;
         this.options = __assign(__assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
         this.secretKey = secretKey;
-        this.charge = new Charge(this.options);
-        this.customers = new Customers(this.options);
-        this.refunds = new Refunds(this.options);
-        this.verification = new Verification(this.options);
         this.miscellaneous = new Miscellaneous(this.options);
         this.transactions = new Transactions(this.options);
     }

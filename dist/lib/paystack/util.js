@@ -1,9 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * @constructor Transactions
+ * Provides helper methods and error handling for the whole package
+ *
+ */
 var Util = /** @class */ (function () {
     function Util(options) {
         this.options = options;
     }
+    /**
+     * @param {Array<string>} - requiredFields
+     * @param {Object} - context
+     * @returns {void}
+     * @throws - throws error if something goes wrong
+     * cross checks the required field with context to make sure all fields required are fulfiled
+     */
     Util.prototype.validateContext = function (requiredFields, context) {
         try {
             var keys_1 = Object.keys(context), found_1 = true;
@@ -18,6 +30,13 @@ var Util = /** @class */ (function () {
             throw err;
         }
     };
+    /**
+     * @param {Object} - context
+     * @returns {void}
+     * @throws - throws error if something goes wrong
+     * Builds a query param from a object
+     * { name: 'john', place: 'here' } -> ?name=john&place=here
+     */
     Util.prototype.buildQueryParams = function (context) {
         try {
             var query = '', keys = Object.keys(context);

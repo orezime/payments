@@ -1,5 +1,10 @@
 import { Options } from '../../typings'
 
+/**
+ * @constructor Transactions
+ * Provides helper methods and error handling for the whole package
+ * 
+ */
 export class Util {
     options: Options
 
@@ -7,6 +12,13 @@ export class Util {
         this.options = options
     }
 
+    /**
+     * @param {Array<string>} - requiredFields
+     * @param {Object} - context
+     * @returns {void} 
+     * @throws - throws error if something goes wrong
+     * cross checks the required field with context to make sure all fields required are fulfiled
+     */
     validateContext(requiredFields: Array<string>, context: any): void {
         try {
             let keys = Object.keys(context), found = true
@@ -22,6 +34,13 @@ export class Util {
         }
     }
 
+    /**
+     * @param {Object} - context
+     * @returns {void} 
+     * @throws - throws error if something goes wrong
+     * Builds a query param from a object
+     * { name: 'john', place: 'here' } -> ?name=john&place=here
+     */
     buildQueryParams(context: any): string {
         try {
             let query = '', keys = Object.keys(context)
