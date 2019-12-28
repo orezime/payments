@@ -2,8 +2,8 @@
 // import "core-js/fn/array.find"
 // ...
 import * as axios from 'axios'
-import { Charge, Customers, Refunds, Verification, Miscellaneous } from './paystack'
-import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous } from '../typings'
+import { Charge, Customers, Refunds, Verification, Miscellaneous, Transactions } from './paystack'
+import { Options, ICharge, ICustomers, IRefunds, IVerificarion, IMiscellaneous, ITransactions } from '../typings'
 
 export class Paystack {
   options: Options
@@ -13,6 +13,7 @@ export class Paystack {
   refunds: IRefunds
   verification: IVerificarion
   miscellaneous: IMiscellaneous
+  transactions: ITransactions
 
   constructor(options: Options) {
     this.options = {
@@ -26,6 +27,7 @@ export class Paystack {
     this.refunds = new Refunds(this.options)
     this.verification = new Verification(this.options)
     this.miscellaneous = new Miscellaneous(this.options)
+    this.transactions = new Transactions(this.options)
   }
 
   _axios(): any {

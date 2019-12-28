@@ -96,10 +96,11 @@ export type ChargeParams = {
         account_number: string
     }
     authorization_code: string
-    pin: string
+    pin?: string
     metadata: any
+    currency?: string
     reference: string
-    device_id: string
+    device_id?: string
     birthday?: string
 }
 
@@ -128,7 +129,7 @@ export interface ICountries {
 export interface IMiscellaneous extends IBanks, ICountries { }
 
 export type Transaction = {
-    callback_url: string
+    callback_url?: string
     reference: string
     amount: string
     email: string
@@ -237,6 +238,32 @@ export type Total = {
     pending_transfers_by_currency: Array<CurrencyType>
 }
 
+export type exportParams = Transaction & {
+    settled: boolean
+    payment_page: number
+    customer: number
+    currency: string
+    settlement: number
+    amount: number
+    status: string
+}
+export type exportResponse = Response & {
+    data: {
+        path: string
+    }
+}
+
+export type reAuthorizationResponse = Response & {
+    data: {
+        reauthorization_url: string
+        reference: string
+    }
+}
+
+export type checkAuthResponse = Response & {
+    data: CurrencyType
+}
+
 export interface ITransactions {
     initializeTransaction(context: TransactionParams): Promise<TransactionResponse>
     verifyTransaction(ref: string): Promise<VerifyTransactionResponse>
@@ -245,4 +272,7 @@ export interface ITransactions {
     chargeAuthorization(context: Transaction): Promise<VerifyTransactionResponse>
     viewTransactionTimeline(transactionId: number): Promise<Log>
     transactionTotals(context: Timeline): Promise<Total>
+    exportTransactions(context: exportParams): Promise<exportResponse>
+    requestReauthorization(context: ChargeParams): Promise<reAuthorizationResponse>
+    checkAuthorization(context: ChargeParams): Promise<checkAuthResponse>
 }
