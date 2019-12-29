@@ -3190,22 +3190,30 @@
         __moduleExports: axios$1
     });
 
+    /**
+     * @constructor Miscellaneous
+     * Provides miscellaneous REST API endpoints for paystack customers
+     * @docs - https://developers.paystack.co/reference#list-banks
+     */
     var Miscellaneous = /** @class */ (function () {
         function Miscellaneous(options) {
+            var host = options.host, axios = options.axios;
             this.options = options;
+            this.url = host || '';
+            this.axios = axios;
         }
         /**
-        |--------------------------------------------------
-        | List all available countries paystack supports
-        |--------------------------------------------------
-        */
+         * @returns {Promise<Array<Country>>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#list-countries
+         */
         Miscellaneous.prototype.listCountries = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var url$$1;
-                return __generator(this, function (_a) {
+                var _a, axios, url$$1;
+                return __generator(this, function (_b) {
                     try {
-                        url$$1 = this.options.host + "/country";
-                        return [2 /*return*/, axios$1.get(url$$1).then(function (res) { return res.data; })];
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        return [2 /*return*/, axios.get(url$$1 + "/country").then(function (res) { return res.data; })];
                     }
                     catch (err) {
                         throw err;
@@ -3215,17 +3223,17 @@
             });
         };
         /**
-        |--------------------------------------------------
-        | List all available banks in nigeria that paystack supports
-        |--------------------------------------------------
-        */
+         * @returns {Promise<Array<Country>>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#list-banks
+         */
         Miscellaneous.prototype.listBanks = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var url$$1;
-                return __generator(this, function (_a) {
+                var _a, axios, url$$1;
+                return __generator(this, function (_b) {
                     try {
-                        url$$1 = this.options.host + "/bank";
-                        return [2 /*return*/, axios$1.get(url$$1).then(function (res) { return res.data; })];
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        return [2 /*return*/, axios.get(url$$1 + "/bank").then(function (res) { return res.data; })];
                     }
                     catch (err) {
                         throw err;

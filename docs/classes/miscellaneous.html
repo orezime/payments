@@ -2405,7 +2405,13 @@ img {
 					<a href="miscellaneous.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="miscellaneous.html#axios" class="tsd-kind-icon">axios</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
 					<a href="miscellaneous.html#options" class="tsd-kind-icon">options</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="miscellaneous.html#url" class="tsd-kind-icon">url</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="miscellaneous.html#listbanks" class="tsd-kind-icon">list<wbr>Banks</a>
@@ -2461,6 +2467,21 @@ img {
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<dl class="tsd-comment-tags">
+					<dt>constructor</dt>
+					<dd><p>Miscellaneous
+						Provides miscellaneous REST API endpoints for paystack customers</p>
+					</dd>
+					<dt>docs</dt>
+					<dd><ul>
+							<li><a href="https://developers.paystack.co/reference#list-banks">https://developers.paystack.co/reference#list-banks</a></li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
@@ -2488,7 +2509,9 @@ img {
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="miscellaneous.html#axios" class="tsd-kind-icon">axios</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="miscellaneous.html#options" class="tsd-kind-icon">options</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="miscellaneous.html#url" class="tsd-kind-icon">url</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -2513,7 +2536,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/orezime/payments/blob/180bf67/src/paystack/miscellaneous.ts#L5">paystack/miscellaneous.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/orezime/payments/blob/651d582/src/paystack/miscellaneous.ts#L12">paystack/miscellaneous.ts:12</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2530,12 +2553,32 @@ img {
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="axios" class="tsd-anchor"></a>
+				<h3>axios</h3>
+				<div class="tsd-signature tsd-kind-icon">axios<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/orezime/payments/blob/651d582/src/paystack/miscellaneous.ts#L12">paystack/miscellaneous.ts:12</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 				<a name="options" class="tsd-anchor"></a>
 				<h3>options</h3>
 				<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Options</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/orezime/payments/blob/180bf67/src/paystack/miscellaneous.ts#L5">paystack/miscellaneous.ts:5</a></li>
+						<li>Defined in <a href="https://github.com/orezime/payments/blob/651d582/src/paystack/miscellaneous.ts#L10">paystack/miscellaneous.ts:10</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="url" class="tsd-anchor"></a>
+				<h3>url</h3>
+				<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/orezime/payments/blob/651d582/src/paystack/miscellaneous.ts#L11">paystack/miscellaneous.ts:11</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2552,15 +2595,22 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/orezime/payments/blob/180bf67/src/paystack/miscellaneous.ts#L30">paystack/miscellaneous.ts:30</a></li>
+								<li>Defined in <a href="https://github.com/orezime/payments/blob/651d582/src/paystack/miscellaneous.ts#L40">paystack/miscellaneous.ts:40</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>|--------------------------------------------------
-									| List all available banks in nigeria that paystack supports
-								|--------------------------------------------------</p>
-							</div>
+							<dl class="tsd-comment-tags">
+								<dt>throws</dt>
+								<dd><ul>
+										<li>throws error if something goes wrong</li>
+									</ul>
+								</dd>
+								<dt>docs</dt>
+								<dd><ul>
+										<li><a href="https://developers.paystack.co/reference#list-banks">https://developers.paystack.co/reference#list-banks</a></li>
+									</ul>
+								</dd>
+							</dl>
 						</div>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Bank</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
@@ -2576,15 +2626,22 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/orezime/payments/blob/180bf67/src/paystack/miscellaneous.ts#L16">paystack/miscellaneous.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/orezime/payments/blob/651d582/src/paystack/miscellaneous.ts#L26">paystack/miscellaneous.ts:26</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>|--------------------------------------------------
-									| List all available countries paystack supports
-								|--------------------------------------------------</p>
-							</div>
+							<dl class="tsd-comment-tags">
+								<dt>throws</dt>
+								<dd><ul>
+										<li>throws error if something goes wrong</li>
+									</ul>
+								</dd>
+								<dt>docs</dt>
+								<dd><ul>
+										<li><a href="https://developers.paystack.co/reference#list-countries">https://developers.paystack.co/reference#list-countries</a></li>
+									</ul>
+								</dd>
+							</dl>
 						</div>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Country</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
