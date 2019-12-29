@@ -3179,11 +3179,6 @@ axios_1.default = default_1;
 
 var axios$1 = axios_1;
 
-var axios$2 = /*#__PURE__*/Object.freeze({
-    default: axios$1,
-    __moduleExports: axios$1
-});
-
 /**
  * @constructor Miscellaneous
  * Provides miscellaneous REST API endpoints for paystack customers
@@ -3560,9 +3555,8 @@ var Paystack = /** @class */ (function () {
         this.transactions = new Transactions(this.options);
     }
     Paystack.prototype._axios = function (secretKey) {
-        // @ts-ignore
-        undefined = "Bearer " + secretKey;
-        return axios$2;
+        axios$1.defaults.headers.common['Authorization'] = "Bearer " + secretKey;
+        return axios$1;
     };
     return Paystack;
 }());

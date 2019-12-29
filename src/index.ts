@@ -1,4 +1,4 @@
-import * as axios from 'axios'
+import axios from 'axios'
 import { Miscellaneous, Transactions } from './paystack'
 import { Options, IMiscellaneous, ITransactions } from '../typings'
 
@@ -21,7 +21,6 @@ export class Paystack {
   }
 
   _axios(secretKey: string): any {
-    // @ts-ignore
     axios.defaults.headers.common['Authorization'] = `Bearer ${secretKey}`
     return axios
   }
