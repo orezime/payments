@@ -29,6 +29,20 @@ describe('Paystack Transactions Unit Tests', () => {
         expect(paystack).toBeInstanceOf(Paystack)
         await paystack.transactions.exportTransactions()
     })
+
+    it('Should request reauthorization', async () => {
+        expect(paystack).toBeInstanceOf(Paystack)
+        await paystack.transactions.initializeTransaction({ email: 'jesseokeya@gmail.com', amount: 10000 })
+        // console.log(ctx)
+        
+
+    })
+
+    it('Should request reauthorization', async () => {
+        expect(paystack).toBeInstanceOf(Paystack)
+        const ctx = await paystack.transactions.verifyTransaction('tsmmpnc0wj')
+        console.log(ctx)
+    })
 })
 
 

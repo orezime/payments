@@ -148,12 +148,12 @@ export type TransactionResponse = {
     data: {
         authorization_url: string
         access_code: string
-        reference: string
+        reference?: string
     }
 }
 
 export type TransactionParams = {
-    reference: string
+    reference?: string
     amount: number
     email: string
 }
