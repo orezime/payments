@@ -1,1 +1,1 @@
-{"version":3,"file":"balanceHistory.js","sourceRoot":"","sources":["../../../src/paystack/balanceHistory.ts"],"names":[],"mappings":";;AAAA;IAGI,wBAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IACL,qBAAC;AAAD,CAAC,AAND,IAMC;AANY,wCAAc"}
+{"version":3,"file":"balanceHistory.js","sourceRoot":"","sources":["../../../src/paystack/balanceHistory.ts"],"names":[],"mappings":";;AAAA,MAAa,cAAc;IAGvB,YAAY,OAAO,GAAG,EAAE;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;CACJ;AAND,wCAMC"}

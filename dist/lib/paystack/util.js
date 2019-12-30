@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Provides helper methods and error handling for the whole package
  *
  */
-var Util = /** @class */ (function () {
-    function Util(options) {
+class Util {
+    constructor(options) {
         this.options = options;
     }
     /**
@@ -16,20 +16,20 @@ var Util = /** @class */ (function () {
      * @throws - throws error if something goes wrong
      * cross checks the required field with context to make sure all fields required are fulfiled
      */
-    Util.prototype.validateContext = function (requiredFields, context) {
+    validateContext(requiredFields, context) {
         try {
-            var keys_1 = Object.keys(context), found_1 = true;
-            requiredFields.forEach(function (requiredField) {
-                found_1 = found_1 && keys_1.includes(requiredField);
+            let keys = Object.keys(context), found = true;
+            requiredFields.forEach(requiredField => {
+                found = found && keys.includes(requiredField);
             });
-            var docs = 'https://developers.paystack.co/reference', msg = "Missing field(s). The method your trying to call requires the following object fields " + requiredFields + " as params. " + docs;
-            if (!found_1)
+            const docs = 'https://developers.paystack.co/reference', msg = `Missing field(s). The method your trying to call requires the following object fields ${requiredFields} as params. ${docs}`;
+            if (!found)
                 throw new Error(msg + docs);
         }
         catch (err) {
             throw err;
         }
-    };
+    }
     /**
      * @param {Object} - context
      * @returns {void}
@@ -37,21 +37,20 @@ var Util = /** @class */ (function () {
      * Builds a query param from a object
      * { name: 'john', place: 'here' } -> ?name=john&place=here
      */
-    Util.prototype.buildQueryParams = function (context) {
+    buildQueryParams(context) {
         try {
-            var query = '', keys = Object.keys(context);
+            let query = '', keys = Object.keys(context);
             if (keys.length <= 0)
                 return query;
-            for (var key in context) {
-                query += key + "=" + context[key] + "&";
+            for (let key in context) {
+                query += `${key}=${context[key]}&`;
             }
-            return "?" + query.slice(0, -1);
+            return `?${query.slice(0, -1)}`;
         }
         catch (err) {
             throw err;
         }
-    };
-    return Util;
-}());
+    }
+}
 exports.Util = Util;
 //# sourceMappingURL=util.js.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"verification.js","sourceRoot":"","sources":["../../../src/paystack/verification.ts"],"names":[],"mappings":";;AAEA;IAGI,sBAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IACL,mBAAC;AAAD,CAAC,AAND,IAMC;AANY,oCAAY"}
+{"version":3,"file":"verification.js","sourceRoot":"","sources":["../../../src/paystack/verification.ts"],"names":[],"mappings":";;AAEA,MAAa,YAAY;IAGrB,YAAY,OAAO,GAAG,EAAE;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;CACJ;AAND,oCAMC"}
