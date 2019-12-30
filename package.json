@@ -1,10 +1,10 @@
 {
   "name": "orezime-paystack",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "keywords": [],
-  "main": "dist/lib/index.js",
-  "module": "dist/lib/index.js",
+  "main": "dist/orezime-paystack.umd.js",
+  "module": "dist/orezime-paystack.es5.js",
   "typings": "dist/types/orezime-paystack.d.ts",
   "types": "dist/types/orezime-paystack.d.ts",
   "files": [
