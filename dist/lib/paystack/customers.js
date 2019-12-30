@@ -1,60 +1,62 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Customers {
-    constructor(options = {}) {
+var Customers = /** @class */ (function () {
+    function Customers(options) {
+        if (options === void 0) { options = {}; }
         this.options = options;
     }
-    listCustomers() {
+    Customers.prototype.listCustomers = function () {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
-    createCustomers(context) {
+    };
+    Customers.prototype.createCustomers = function (context) {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
+    };
     /** customer can be fetched by id email or customer code **/
-    fetchCustomer(context) {
+    Customers.prototype.fetchCustomer = function (context) {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
-    updateCustomer(context) {
+    };
+    Customers.prototype.updateCustomer = function (context) {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
+    };
     /** Authorization code **/
-    deActivateAuthorization(context) {
+    Customers.prototype.deActivateAuthorization = function (context) {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
+    };
     /** Whitelist / Blacklist Customer **/
-    flagCustomer(context) {
+    Customers.prototype.flagCustomer = function (context) {
         try {
-            return new Promise((resolve, reject) => { });
+            return new Promise(function (resolve, reject) { });
         }
         catch (err) {
             throw err;
         }
-    }
-}
+    };
+    return Customers;
+}());
 exports.Customers = Customers;
 //# sourceMappingURL=customers.js.map

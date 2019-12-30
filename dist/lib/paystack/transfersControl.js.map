@@ -1,1 +1,1 @@
-{"version":3,"file":"transfersControl.js","sourceRoot":"","sources":["../../../src/paystack/transfersControl.ts"],"names":[],"mappings":";;AAAA,MAAa,gBAAgB;IAGzB,YAAY,OAAO,GAAG,EAAE;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;CACJ;AAND,4CAMC"}
+{"version":3,"file":"transfersControl.js","sourceRoot":"","sources":["../../../src/paystack/transfersControl.ts"],"names":[],"mappings":";;AAAA;IAGI,0BAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IACL,uBAAC;AAAD,CAAC,AAND,IAMC;AANY,4CAAgB"}

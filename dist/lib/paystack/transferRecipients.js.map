@@ -1,1 +1,1 @@
-{"version":3,"file":"transferRecipients.js","sourceRoot":"","sources":["../../../src/paystack/transferRecipients.ts"],"names":[],"mappings":";;AAAA,MAAa,kBAAkB;IAG3B,YAAY,OAAO,GAAG,EAAE;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;CACJ;AAND,gDAMC"}
+{"version":3,"file":"transferRecipients.js","sourceRoot":"","sources":["../../../src/paystack/transferRecipients.ts"],"names":[],"mappings":";;AAAA;IAGI,4BAAY,OAAY;QAAZ,wBAAA,EAAA,YAAY;QACpB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAA;IAC1B,CAAC;IACL,yBAAC;AAAD,CAAC,AAND,IAMC;AANY,gDAAkB"}

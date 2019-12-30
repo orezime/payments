@@ -8,6 +8,83 @@ import stream from 'stream';
 import url from 'url';
 import zlib from 'zlib';
 
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
 var bind = function bind(fn, thisArg) {
   return function wrap() {
     var args = new Array(arguments.length);
@@ -1999,35 +2076,35 @@ var _package = {
 };
 
 var _package$1 = /*#__PURE__*/Object.freeze({
-  _args: _args,
-  _from: _from,
-  _id: _id,
-  _inBundle: _inBundle,
-  _integrity: _integrity,
-  _location: _location,
-  _phantomChildren: _phantomChildren,
-  _requested: _requested,
-  _requiredBy: _requiredBy,
-  _resolved: _resolved,
-  _spec: _spec,
-  _where: _where,
-  author: author,
-  browser: browser$1,
-  bugs: bugs,
-  bundlesize: bundlesize,
-  dependencies: dependencies,
-  description: description,
-  devDependencies: devDependencies,
-  homepage: homepage,
-  keywords: keywords,
-  license: license,
-  main: main,
-  name: name,
-  repository: repository,
-  scripts: scripts,
-  typings: typings,
-  version: version,
-  default: _package
+    _args: _args,
+    _from: _from,
+    _id: _id,
+    _inBundle: _inBundle,
+    _integrity: _integrity,
+    _location: _location,
+    _phantomChildren: _phantomChildren,
+    _requested: _requested,
+    _requiredBy: _requiredBy,
+    _resolved: _resolved,
+    _spec: _spec,
+    _where: _where,
+    author: author,
+    browser: browser$1,
+    bugs: bugs,
+    bundlesize: bundlesize,
+    dependencies: dependencies,
+    description: description,
+    devDependencies: devDependencies,
+    homepage: homepage,
+    keywords: keywords,
+    license: license,
+    main: main,
+    name: name,
+    repository: repository,
+    scripts: scripts,
+    typings: typings,
+    version: version,
+    default: _package
 });
 
 var pkg = getCjsExportFromNamespace(_package$1);
@@ -3102,38 +3179,14 @@ axios_1.default = default_1;
 
 var axios$1 = axios_1;
 
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-}
-
 /**
  * @constructor Miscellaneous
  * Provides miscellaneous REST API endpoints for paystack customers
  * @docs - https://developers.paystack.co/reference#list-banks
  */
-class Miscellaneous {
-    constructor(options) {
-        const { host, axios } = options;
+var Miscellaneous = /** @class */ (function () {
+    function Miscellaneous(options) {
+        var host = options.host, axios = options.axios;
         this.options = options;
         this.url = host || '';
         this.axios = axios;
@@ -3143,42 +3196,51 @@ class Miscellaneous {
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#list-countries
      */
-    listCountries() {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                return axios.get(`${url$$1}/country`).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Miscellaneous.prototype.listCountries = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    return [2 /*return*/, axios.get(url$$1 + "/country").then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @returns {Promise<Array<Country>>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#list-banks
      */
-    listBanks() {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                return axios.get(`${url$$1}/bank`).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Miscellaneous.prototype.listBanks = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    return [2 /*return*/, axios.get(url$$1 + "/bank").then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
-}
+    };
+    return Miscellaneous;
+}());
 
 /**
  * @constructor Transactions
  * Provides helper methods and error handling for the whole package
  *
  */
-class Util {
-    constructor(options) {
+var Util = /** @class */ (function () {
+    function Util(options) {
         this.options = options;
     }
     /**
@@ -3188,20 +3250,20 @@ class Util {
      * @throws - throws error if something goes wrong
      * cross checks the required field with context to make sure all fields required are fulfiled
      */
-    validateContext(requiredFields, context) {
+    Util.prototype.validateContext = function (requiredFields, context) {
         try {
-            let keys = Object.keys(context), found = true;
-            requiredFields.forEach(requiredField => {
-                found = found && keys.includes(requiredField);
+            var keys_1 = Object.keys(context), found_1 = true;
+            requiredFields.forEach(function (requiredField) {
+                found_1 = found_1 && keys_1.includes(requiredField);
             });
-            const docs = 'https://developers.paystack.co/reference', msg = `Missing field(s). The method your trying to call requires the following object fields ${requiredFields} as params. ${docs}`;
-            if (!found)
+            var docs = 'https://developers.paystack.co/reference', msg = "Missing field(s). The method your trying to call requires the following object fields " + requiredFields + " as params. " + docs;
+            if (!found_1)
                 throw new Error(msg + docs);
         }
         catch (err) {
             throw err;
         }
-    }
+    };
     /**
      * @param {Object} - context
      * @returns {void}
@@ -3209,21 +3271,22 @@ class Util {
      * Builds a query param from a object
      * { name: 'john', place: 'here' } -> ?name=john&place=here
      */
-    buildQueryParams(context) {
+    Util.prototype.buildQueryParams = function (context) {
         try {
-            let query = '', keys = Object.keys(context);
+            var query = '', keys = Object.keys(context);
             if (keys.length <= 0)
                 return query;
-            for (let key in context) {
-                query += `${key}=${context[key]}&`;
+            for (var key in context) {
+                query += key + "=" + context[key] + "&";
             }
-            return `?${query.slice(0, -1)}`;
+            return "?" + query.slice(0, -1);
         }
         catch (err) {
             throw err;
         }
-    }
-}
+    };
+    return Util;
+}());
 
 /**
  * @constructor Transactions
@@ -3231,13 +3294,16 @@ class Util {
  * @docs - https://developers.paystack.co/reference#initialize-a-transaction
  *
  */
-class Transactions extends Util {
-    constructor(options) {
-        const { host, axios } = options;
-        super(options);
-        this.options = options;
-        this.url = `${host}/transaction`;
-        this.axios = axios;
+var Transactions = /** @class */ (function (_super) {
+    __extends(Transactions, _super);
+    function Transactions(options) {
+        var _this = this;
+        var host = options.host, axios = options.axios;
+        _this = _super.call(this, options) || this;
+        _this.options = options;
+        _this.url = host + "/transaction";
+        _this.axios = axios;
+        return _this;
     }
     /**
      * @param {TransactionParams} - TransactionParams
@@ -3245,394 +3311,555 @@ class Transactions extends Util {
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#initialize-a-transaction
      */
-    initializeTransaction(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const path = '/initialize/';
-                const requiredFields = ['amount', 'email'];
-                this.validateContext(requiredFields, context);
-                return axios.post(url$$1 + path, context).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.initializeTransaction = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, path, requiredFields;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    path = '/initialize/';
+                    requiredFields = ['amount', 'email'];
+                    this.validateContext(requiredFields, context);
+                    return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {string} - reference
      * @returns {Promise<VerifyTransactionResponse>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#verify-transaction
      */
-    verifyTransaction(ref) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                if (!ref) {
-                    const docs = 'https://developers.paystack.co/reference#verify-transaction';
-                    throw new Error(`Missing Parameter 'reference' is required for this method. ${docs}`);
+    Transactions.prototype.verifyTransaction = function (ref) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, docs, path;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    if (!ref) {
+                        docs = 'https://developers.paystack.co/reference#verify-transaction';
+                        throw new Error("Missing Parameter 'reference' is required for this method. " + docs);
+                    }
+                    path = "/verify/" + ref;
+                    return [2 /*return*/, axios.get(url$$1 + path).then(function (res) { return res.data; })];
                 }
-                const path = `/verify/${ref}`;
-                return axios.get(url$$1 + path).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {ListTransactionsParams} - ListTransactionsParams
      * @returns {Promise<Array<Transaction>>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#list-transactions
      */
-    listTransactions(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const query = this.buildQueryParams(context || {});
-                return axios.get(url$$1 + query).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.listTransactions = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, query;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    query = this.buildQueryParams(context || {});
+                    return [2 /*return*/, axios.get(url$$1 + query).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {number} - transactionId
      * @returns {Promise<Transaction>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#fetch-transaction
      */
-    fetchTransaction(transactionId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                if (!transactionId) {
-                    const docs = 'https://developers.paystack.co/reference#fetch-transaction';
-                    throw new Error(`Missing Parameter 'transactionId' is required for this method. ${docs}`);
+    Transactions.prototype.fetchTransaction = function (transactionId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, docs;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    if (!transactionId) {
+                        docs = 'https://developers.paystack.co/reference#fetch-transaction';
+                        throw new Error("Missing Parameter 'transactionId' is required for this method. " + docs);
+                    }
+                    return [2 /*return*/, axios.get(url$$1 + "/" + transactionId).then(function (res) { return res.data; })];
                 }
-                return axios.get(`${url$$1}/${transactionId}`).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {Transaction} - Transaction
      * @returns {Promise<VerifyTransactionResponse>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#charge-authorization
      */
-    chargeAuthorization(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const path = '/charge_authorization/';
-                const requiredFields = ['amount', 'email', 'authorization_code'];
-                this.validateContext(requiredFields, context);
-                return axios.post(url$$1 + path, context).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.chargeAuthorization = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, path, requiredFields;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    path = '/charge_authorization/';
+                    requiredFields = ['amount', 'email', 'authorization_code'];
+                    this.validateContext(requiredFields, context);
+                    return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {number} - transactionId
      * @returns {Promise<Log>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#view-transaction-timeline
      */
-    viewTransactionTimeline(transactionId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                if (!transactionId) {
-                    const docs = 'https://developers.paystack.co/reference#view-transaction-timeline';
-                    throw new Error(`Missing Parameter 'transactionId' is required for this method. ${docs}`);
+    Transactions.prototype.viewTransactionTimeline = function (transactionId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, docs;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    if (!transactionId) {
+                        docs = 'https://developers.paystack.co/reference#view-transaction-timeline';
+                        throw new Error("Missing Parameter 'transactionId' is required for this method. " + docs);
+                    }
+                    return [2 /*return*/, axios.get(url$$1 + "/timeline/" + transactionId).then(function (res) { return res.data; })];
                 }
-                return axios.get(`${url$$1}/timeline/${transactionId}`).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {Timeline} - Timeline
      * @returns {Promise<Total>>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#transaction-totals
      */
-    transactionTotals(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const query = this.buildQueryParams(context || {});
-                return axios.get(`${url$$1}/totals${query}`).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.transactionTotals = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, query;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    query = this.buildQueryParams(context || {});
+                    return [2 /*return*/, axios.get(url$$1 + "/totals" + query).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {exportParams} - exportParams
      * @returns {Promise<exportResponse>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#export-transactions
      */
-    exportTransactions(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const query = this.buildQueryParams(context || {});
-                return axios.get(`${url$$1}/export${query}`).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.exportTransactions = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, query;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    query = this.buildQueryParams(context || {});
+                    return [2 /*return*/, axios.get(url$$1 + "/export" + query).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {ChargeParams} - ChargeParams
      * @returns {Promise<reAuthorizationResponse>}
      * @throws - throws error if something goes wrong
      * @docs - https://developers.paystack.co/reference#request-reauthorization
      */
-    requestReauthorization(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const path = '/request_reauthorization/';
-                const requiredFields = ['amount', 'email', 'authorization_code'];
-                this.validateContext(requiredFields, context);
-                return axios.post(url$$1 + path, context).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.requestReauthorization = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, path, requiredFields;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    path = '/request_reauthorization/';
+                    requiredFields = ['amount', 'email', 'authorization_code'];
+                    this.validateContext(requiredFields, context);
+                    return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
+    };
     /**
      * @param {ChargeParams} - ChargeParams
      * @returns {Promise<checkAuthResponse>}
      * @throws - throws error if something goes wrong
      * @params - https://developers.paystack.co/reference#check-authorization
      */
-    checkAuthorization(context) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { axios, url: url$$1 } = this;
-                const path = '/check_authorization/';
-                const requiredFields = ['amount', 'email', 'authorization_code'];
-                this.validateContext(requiredFields, context);
-                return axios.post(url$$1 + path, context).then((res) => res.data);
-            }
-            catch (err) {
-                throw err;
-            }
+    Transactions.prototype.checkAuthorization = function (context) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, axios, url$$1, path, requiredFields;
+            return __generator(this, function (_b) {
+                try {
+                    _a = this, axios = _a.axios, url$$1 = _a.url;
+                    path = '/check_authorization/';
+                    requiredFields = ['amount', 'email', 'authorization_code'];
+                    this.validateContext(requiredFields, context);
+                    return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                }
+                catch (err) {
+                    throw err;
+                }
+                return [2 /*return*/];
+            });
         });
-    }
-}
+    };
+    return Transactions;
+}(Util));
 
-class Paystack {
-    constructor(options) {
-        const secretKey = options.secretKey;
-        this.options = Object.assign(Object.assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
+var Paystack = /** @class */ (function () {
+    function Paystack(options) {
+        var secretKey = options.secretKey;
+        this.options = __assign(__assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
         this.secretKey = secretKey;
         this.miscellaneous = new Miscellaneous(this.options);
         this.transactions = new Transactions(this.options);
     }
-    _axios(secretKey) {
-        axios$1.defaults.headers.common['Authorization'] = `Bearer ${secretKey}`;
+    Paystack.prototype._axios = function (secretKey) {
+        axios$1.defaults.headers.common['Authorization'] = "Bearer " + secretKey;
         return axios$1;
-    }
-}
+    };
+    return Paystack;
+}());
 
 export { Paystack };
 //# sourceMappingURL=index.js.map
-    }
-          });
-      }
-      /**
-       * @param {ListTransactionsParams} - ListTransactionsParams
-       * @returns {Promise<Array<Transaction>>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#list-transactions
-       */
-      listTransactions(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  const query = this.buildQueryParams(context || {});
-                  return axios.get(url$$1 + query).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {number} - transactionId
-       * @returns {Promise<Transaction>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#fetch-transaction
-       */
-      fetchTransaction(transactionId) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  if (!transactionId) {
-                      const docs = 'https://developers.paystack.co/reference#fetch-transaction';
-                      throw new Error(`Missing Parameter 'transactionId' is required for this method. ${docs}`);
-                  }
-                  return axios.get(`${url$$1}/${transactionId}`).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {Transaction} - Transaction
-       * @returns {Promise<VerifyTransactionResponse>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#charge-authorization
-       */
-      chargeAuthorization(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  const path = '/charge_authorization/';
-                  const requiredFields = ['amount', 'email', 'authorization_code'];
-                  this.validateContext(requiredFields, context);
-                  return axios.post(url$$1 + path, context).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {number} - transactionId
-       * @returns {Promise<Log>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#view-transaction-timeline
-       */
-      viewTransactionTimeline(transactionId) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  if (!transactionId) {
-                      const docs = 'https://developers.paystack.co/reference#view-transaction-timeline';
-                      throw new Error(`Missing Parameter 'transactionId' is required for this method. ${docs}`);
-                  }
-                  return axios.get(`${url$$1}/timeline/${transactionId}`).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {Timeline} - Timeline
-       * @returns {Promise<Total>>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#transaction-totals
-       */
-      transactionTotals(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  const query = this.buildQueryParams(context || {});
-                  return axios.get(`${url$$1}/totals${query}`).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {exportParams} - exportParams
-       * @returns {Promise<exportResponse>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#export-transactions
-       */
-      exportTransactions(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  const query = this.buildQueryParams(context || {});
-                  return axios.get(`${url$$1}/export${query}`).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {ChargeParams} - ChargeParams
-       * @returns {Promise<reAuthorizationResponse>}
-       * @throws - throws error if something goes wrong
-       * @docs - https://developers.paystack.co/reference#request-reauthorization
-       */
-      requestReauthorization(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  const path = '/request_reauthorization/';
-                  const requiredFields = ['amount', 'email', 'authorization_code'];
-                  this.validateContext(requiredFields, context);
-                  return axios.post(url$$1 + path, context).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-      /**
-       * @param {ChargeParams} - ChargeParams
-       * @returns {Promise<checkAuthResponse>}
-       * @throws - throws error if something goes wrong
-       * @params - https://developers.paystack.co/reference#check-authorization
-       */
-      checkAuthorization(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-              try {
-                  const { axios, url: url$$1 } = this;
-                  const path = '/check_authorization/';
-                  const requiredFields = ['amount', 'email', 'authorization_code'];
-                  this.validateContext(requiredFields, context);
-                  return axios.post(url$$1 + path, context).then((res) => res.data);
-              }
-              catch (err) {
-                  throw err;
-              }
-          });
-      }
-  }
+ * @throws - throws error if something goes wrong
+         * Builds a query param from a object
+         * { name: 'john', place: 'here' } -> ?name=john&place=here
+         */
+        Util.prototype.buildQueryParams = function (context) {
+            try {
+                var query = '', keys = Object.keys(context);
+                if (keys.length <= 0)
+                    return query;
+                for (var key in context) {
+                    query += key + "=" + context[key] + "&";
+                }
+                return "?" + query.slice(0, -1);
+            }
+            catch (err) {
+                throw err;
+            }
+        };
+        return Util;
+    }());
 
-  class Paystack {
-      constructor(options) {
-          const secretKey = options.secretKey;
-          this.options = Object.assign(Object.assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
-          this.secretKey = secretKey;
-          this.miscellaneous = new Miscellaneous(this.options);
-          this.transactions = new Transactions(this.options);
-      }
-      _axios(secretKey) {
-          axios$1.defaults.headers.common['Authorization'] = `Bearer ${secretKey}`;
-          return axios$1;
-      }
-  }
+    /**
+     * @constructor Transactions
+     * Interfaces with paystack REST API to handle payment and user transactions
+     * @docs - https://developers.paystack.co/reference#initialize-a-transaction
+     *
+     */
+    var Transactions = /** @class */ (function (_super) {
+        __extends(Transactions, _super);
+        function Transactions(options) {
+            var _this = this;
+            var host = options.host, axios = options.axios;
+            _this = _super.call(this, options) || this;
+            _this.options = options;
+            _this.url = host + "/transaction";
+            _this.axios = axios;
+            return _this;
+        }
+        /**
+         * @param {TransactionParams} - TransactionParams
+         * @returns {Promise<TransactionResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#initialize-a-transaction
+         */
+        Transactions.prototype.initializeTransaction = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/initialize/';
+                        requiredFields = ['amount', 'email'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {string} - reference
+         * @returns {Promise<VerifyTransactionResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#verify-transaction
+         */
+        Transactions.prototype.verifyTransaction = function (ref) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, docs, path;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        if (!ref) {
+                            docs = 'https://developers.paystack.co/reference#verify-transaction';
+                            throw new Error("Missing Parameter 'reference' is required for this method. " + docs);
+                        }
+                        path = "/verify/" + ref;
+                        return [2 /*return*/, axios.get(url$$1 + path).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {ListTransactionsParams} - ListTransactionsParams
+         * @returns {Promise<Array<Transaction>>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#list-transactions
+         */
+        Transactions.prototype.listTransactions = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, query;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        query = this.buildQueryParams(context || {});
+                        return [2 /*return*/, axios.get(url$$1 + query).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {number} - transactionId
+         * @returns {Promise<Transaction>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#fetch-transaction
+         */
+        Transactions.prototype.fetchTransaction = function (transactionId) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, docs;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        if (!transactionId) {
+                            docs = 'https://developers.paystack.co/reference#fetch-transaction';
+                            throw new Error("Missing Parameter 'transactionId' is required for this method. " + docs);
+                        }
+                        return [2 /*return*/, axios.get(url$$1 + "/" + transactionId).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {Transaction} - Transaction
+         * @returns {Promise<VerifyTransactionResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#charge-authorization
+         */
+        Transactions.prototype.chargeAuthorization = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/charge_authorization/';
+                        requiredFields = ['amount', 'email', 'authorization_code'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {number} - transactionId
+         * @returns {Promise<Log>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#view-transaction-timeline
+         */
+        Transactions.prototype.viewTransactionTimeline = function (transactionId) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, docs;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        if (!transactionId) {
+                            docs = 'https://developers.paystack.co/reference#view-transaction-timeline';
+                            throw new Error("Missing Parameter 'transactionId' is required for this method. " + docs);
+                        }
+                        return [2 /*return*/, axios.get(url$$1 + "/timeline/" + transactionId).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {Timeline} - Timeline
+         * @returns {Promise<Total>>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#transaction-totals
+         */
+        Transactions.prototype.transactionTotals = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, query;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        query = this.buildQueryParams(context || {});
+                        return [2 /*return*/, axios.get(url$$1 + "/totals" + query).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {exportParams} - exportParams
+         * @returns {Promise<exportResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#export-transactions
+         */
+        Transactions.prototype.exportTransactions = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, query;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        query = this.buildQueryParams(context || {});
+                        return [2 /*return*/, axios.get(url$$1 + "/export" + query).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {ChargeParams} - ChargeParams
+         * @returns {Promise<reAuthorizationResponse>}
+         * @throws - throws error if something goes wrong
+         * @docs - https://developers.paystack.co/reference#request-reauthorization
+         */
+        Transactions.prototype.requestReauthorization = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/request_reauthorization/';
+                        requiredFields = ['amount', 'email', 'authorization_code'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        /**
+         * @param {ChargeParams} - ChargeParams
+         * @returns {Promise<checkAuthResponse>}
+         * @throws - throws error if something goes wrong
+         * @params - https://developers.paystack.co/reference#check-authorization
+         */
+        Transactions.prototype.checkAuthorization = function (context) {
+            return __awaiter(this, void 0, void 0, function () {
+                var _a, axios, url$$1, path, requiredFields;
+                return __generator(this, function (_b) {
+                    try {
+                        _a = this, axios = _a.axios, url$$1 = _a.url;
+                        path = '/check_authorization/';
+                        requiredFields = ['amount', 'email', 'authorization_code'];
+                        this.validateContext(requiredFields, context);
+                        return [2 /*return*/, axios.post(url$$1 + path, context).then(function (res) { return res.data; })];
+                    }
+                    catch (err) {
+                        throw err;
+                    }
+                    return [2 /*return*/];
+                });
+            });
+        };
+        return Transactions;
+    }(Util));
 
-  exports.Paystack = Paystack;
+    var Paystack = /** @class */ (function () {
+        function Paystack(options) {
+            var secretKey = options.secretKey;
+            this.options = __assign(__assign({}, options), { axios: this._axios(secretKey), host: 'https://api.paystack.co' });
+            this.secretKey = secretKey;
+            this.miscellaneous = new Miscellaneous(this.options);
+            this.transactions = new Transactions(this.options);
+        }
+        Paystack.prototype._axios = function (secretKey) {
+            axios$1.defaults.headers.common['Authorization'] = "Bearer " + secretKey;
+            return axios$1;
+        };
+        return Paystack;
+    }());
 
-  Object.defineProperty(exports, '__esModule', { value: true });
+    exports.Paystack = Paystack;
+
+    Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
 //# sourceMappingURL=index.js.map
