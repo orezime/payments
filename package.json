@@ -1,6 +1,6 @@
 {
   "name": "orezime-paystack",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "orezime paystack interfaces with paystack api to make payments and payouts simple and streamlined",
   "keywords": [],
   "main": "dist/orezime-paystack.umd.js",
@@ -25,7 +25,8 @@
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src && npm run cp:typings",
+    "cp:typings": "mkdir dist/typings && cp typings/index.d.ts dist/typings/",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
