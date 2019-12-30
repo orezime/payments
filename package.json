@@ -1,12 +1,15 @@
 {
   "name": "orezime-paystack",
   "version": "0.0.9",
-  "description": "",
+  "description": "orezime paystack interfaces with paystack api to make payments and payouts simple and streamlined",
   "keywords": [],
   "main": "dist/orezime-paystack.umd.js",
   "module": "dist/orezime-paystack.es5.js",
-  "typings": "dist/types/orezime-paystack.d.ts",
-  "types": "dist/types/orezime-paystack.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "types": "dist/types/index.d.ts",
+  "typescript": {
+    "definition": "dist/types/index.d.ts"
+  },
   "files": [
     "dist"
   ],
