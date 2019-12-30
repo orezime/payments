@@ -3,8 +3,8 @@
   "version": "0.0.5",
   "description": "",
   "keywords": [],
-  "main": "dist/orezime-paystack.umd.js",
-  "module": "dist/orezime-paystack.es5.js",
+  "main": "dist/lib/index.js",
+  "module": "dist/lib/index.js",
   "typings": "dist/types/orezime-paystack.d.ts",
   "types": "dist/types/orezime-paystack.d.ts",
   "files": [
