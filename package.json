@@ -1,6 +1,6 @@
 {
   "name": "orezime-paystack",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "orezime paystack interfaces with paystack api to make payments and payouts simple and streamlined",
   "keywords": [],
   "main": "dist/orezime-paystack.umd.js",
