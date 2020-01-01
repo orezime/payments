@@ -40,12 +40,16 @@ export type Country = {
 
 export type Customer = {
     email: string
-    integration: number
-    domain: string
-    customer_code: string
+    integration?: number
+    domain?: string
+    customer_code?: string
     id: number
-    createdAt: Date
-    updatedAt: Date
+    first_name: string
+    last_name: string
+    phone: string
+    metadata: any
+    createdAt?: Date
+    updatedAt?: Date
 }
 
 export type CustomerParams = {
@@ -296,6 +300,10 @@ export type ListProductsResponse = Response & {
     data: Array<Product>
 }
 
+export type CustomerResponse = Response & {
+    data: Customer
+}
+
 export interface IUtil {
     validateContext(requiredFields: Array<string>, context: any): void
     buildQueryParams(context: any): string
@@ -317,6 +325,11 @@ export interface ITransactions {
 export interface IProduct {
     createProduct(context: Product): Promise<ProductResponse>
     listProducts(): Promise<Array<ListProductsResponse>>
-    fetchProduct(productId: number): Promise<Array<ProductResponse>>
-    updateProduct(context: Product): Promise<Array<ProductResponse>>
+    fetchProduct(productId: number): Promise<ProductResponse>
+    updateProduct(productId: number, context: Product): Promise<ProductResponse>
+}
+
+export interface ICustomer {
+    createCustomer(context: Customer): Promise<CustomerResponse>
+    listCustomers(): Promise<Array<CustomerResponse>>
 }

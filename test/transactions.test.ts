@@ -40,8 +40,7 @@ describe('Paystack Transactions Unit Tests', () => {
 
     it('Should request reauthorization', async () => {
         expect(paystack).toBeInstanceOf(Paystack)
-        const ctx = await paystack.transactions.verifyTransaction('tsmmpnc0wj')
-        console.log(ctx)
+        await paystack.transactions.verifyTransaction('tsmmpnc0wj')
     })
 })
 

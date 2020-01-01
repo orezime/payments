@@ -1,12 +1,13 @@
 import axios from 'axios'
-import { Miscellaneous, Transactions } from './paystack'
-import { Options, IMiscellaneous, ITransactions } from '../typings'
+import { Miscellaneous, Transactions, Products } from './paystack'
+import { Options, IMiscellaneous, ITransactions, IProduct } from '../typings'
 
 export class Paystack {
   options: Options
   secretKey: string
   miscellaneous: IMiscellaneous
   transactions: ITransactions
+  products: IProduct
 
   constructor(options: Options) {
     const secretKey = options.secretKey
@@ -18,6 +19,7 @@ export class Paystack {
     this.secretKey = secretKey
     this.miscellaneous = new Miscellaneous(this.options)
     this.transactions = new Transactions(this.options)
+    this.products = new Products(this.options)
   }
 
   _axios(secretKey: string): any {
